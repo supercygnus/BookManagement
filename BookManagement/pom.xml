@@ -10,6 +10,12 @@
 	<artifactId>tomcat-catalina</artifactId>
 	<version>8.0.20</version>
 </dependency>
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-core</artifactId>
+	<version>4.1.6.RELEASE</version>
+</dependency>
+
   </dependencies>
   <build>
     <plugins>
