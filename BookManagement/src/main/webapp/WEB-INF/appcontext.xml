@@ -15,4 +15,13 @@
 		</property>
 	</bean>
 	
+	<bean name="DBUtil" class="util.DBUtil">
+		<property name="jt">
+			<ref local="jdbcTemplate" />
+		</property>
+		<property name="ds">
+			<ref local="bookDataSource" />
+		</property>
+	</bean>
+	
 </beans>
