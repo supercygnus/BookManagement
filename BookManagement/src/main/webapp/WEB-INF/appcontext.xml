@@ -3,5 +3,16 @@
    "http://www.springframework.org/dtd/spring-beans.dtd">
 
 <beans>
-
+	<bean id="bookDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName">
+			<value>java:comp/env/jdbc/book</value>
+		</property>
+	</bean>
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource">
+			<ref local="bookDataSource" />
+		</property>
+	</bean>
+	
 </beans>
