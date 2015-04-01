@@ -6,6 +6,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=BIG5">
 <title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-1.11.2.js"></script>
+<script type="text/javascript">
+$(function(){
+
+	$("#submit_img").click(function(){
+
+		});
+	$("#reset_img").click(function(){
+		$("form[name='login']").reset();
+	});
+});
+</script>
 </head>
 <body>
 <div id="father">
@@ -13,20 +25,31 @@
 <table>
 <tr>
 <td>用戶名:</td>
-<td></td>
+<td><input type="text" name="username" /></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
+<td>密碼:</td>
+<td><input type="text" name="password" /></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
+<td colspan="2">
+<input type="hidden" name="action" value="login" />
+<img id="submit_img" src="images/dla.gif" style="cursor: pointer;" >
+<img id="reset_img" src="images/cza.gif" style="cursor: pointer;">
+</td>
 </tr>
+<%
+String message=(String)request.getAttribute("message");
+if(message!=null){
+	%>
 <tr>
-<td></td>
-<td></td>
+<td colspan="2">
+<font color="red"><%=message%></font>
+</td>
 </tr>
+	<%
+}
+%>
 </table>
 </form>
 <div>
@@ -35,10 +58,5 @@
 
 </div>
 </div>
-<% 
-
-
-
-%>
 </body>
 </html>
