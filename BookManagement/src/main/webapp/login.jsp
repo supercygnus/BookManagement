@@ -34,27 +34,28 @@ $(function(){
 				$("input[name='password']").focus();
 				return false;
 			}
-			$("form[name='login']").submit();
+			$("form[name='login']")[0].submit();
 		});
 	$("#reset_img").click(function(){
-		$("form[name='login']").reset();
+		
+		$("form[name='login']")[0].reset();
 	});
 
 	$("#submit_img").mouseover(function(){
-			$(this).attr("src","images/dlb.gif'");
+			$(this).attr("src","images/dlb.gif");
 		});
 	$("#submit_img").mouseout(function(){
-		$(this).attr("src","images/dla.gif'");
+		$(this).attr("src","images/dla.gif");
 	});
 	$("#submit_img").mousedown(function(){
-		$(this).attr("src","images/dlc.gif'");
+		$(this).attr("src","images/dlc.gif");
 	});
 	$("#submit_img").mouseup(function(){
-		$(this).attr("src","images/dla.gif'");
+		$(this).attr("src","images/dla.gif");
 	});
 
 	$("#reset_img").mouseover(function(){
-		$(this).attr("src","images/czb.gif");
+		$(this).attr("src","images/czc.gif");
 	});
 	$("#reset_img").mouseout(function(){
 		$(this).attr("src","images/cza.gif");

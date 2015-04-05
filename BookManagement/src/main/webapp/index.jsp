@@ -8,18 +8,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=BIG5">
 <title>Insert title here</title>
 </head>
+<frameset rows="135,*" frameborder="no">
+	<frame name="topFrame" src="topFrame.jsp"></frame>
+	<frame name="bottomFrame" src="login.jsp"></frame>
+</frameset>
 <body>
-<%
-
-WebApplicationContext wac
-= WebApplicationContextUtils.getWebApplicationContext(this.getServletContext());
-						
-DBUtil dbu = (DBUtil)wac.getBean("DBUtil");						
-
-List list=dbu.query();
-
-
-
-%>
+<noframes>
+	<p>很抱歉,你的瀏覽器並不支持分頁</p>
+</noframes>
 </body>
 </html>

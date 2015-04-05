@@ -24,4 +24,10 @@
 		</property>
 	</bean>
 	
+	<bean name="StuDB" class="dao.StuDB">
+		<property name="jt">
+			<ref local="jdbcTemplate" />
+		</property>
+	</bean>
+	
 </beans>
