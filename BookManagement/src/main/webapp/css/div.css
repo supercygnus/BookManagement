@@ -1,0 +1,22 @@
+body {
+	font-family: Arial;
+	margin: 10px;
+	font-size: 15px;
+}
+
+#father{
+	background-color: white;
+	border: 1px solid #c0c0c0;
+	position: absolute;
+	left:5%;
+	top:5%;
+	width: 90%;
+	height: 90%;
+}
+
+#message{
+	position: absolute;
+	border: 1px solid red;
+	left:100px;
+	top:100px;
+}

@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=BIG5">
 <title>Insert title here</title>
 </head>
-<frameset rows="135,*" frameborder="no">
+<frameset rows="500,*" frameborder="no">
 	<frame name="topFrame" src="topFrame.jsp"></frame>
 	<frame name="bottomFrame" src="login.jsp"></frame>
 </frameset>

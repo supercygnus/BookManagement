@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=BIG5">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/div.css" />
 <script type="text/javascript" src="js/jquery-1.11.2.js"></script>
 <script type="text/javascript">
 String.prototype.trim=function(){
@@ -72,6 +73,7 @@ $(function(){
 </head>
 <body>
 <div id="father">
+<div id="loginform">
 <form name="login" action="StudentServlet" method="post">
 <table>
 <tr>
@@ -103,10 +105,21 @@ if(message!=null){
 %>
 </table>
 </form>
-<div>
+
 </div>
 <div id="message">
-
+提示:
+<ul>
+<li>登入帳號是學生證號碼</li>
+<li>新生的預設密碼是:
+<ol>
+<li>學生證號</li>
+<li>借書證號</li>
+</ol>
+</li>
+<li>登入後可以修改密碼</li>
+<li>忘記密碼可手動取回</li>
+</ul>
 </div>
 </div>
 </body>

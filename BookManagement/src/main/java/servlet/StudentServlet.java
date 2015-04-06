@@ -13,6 +13,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import util.DBUtil;
+import util.PageBean;
 import dao.StuDB;
 
 /**
@@ -44,9 +46,12 @@ public class StudentServlet extends HttpServlet {
 		String action=request.getParameter("action");
 		String message="";
 		HttpSession session=request.getSession();
+		Vector<Vector<String>> vlist;
 		Vector<String> student;
 		WebApplicationContext wac=WebApplicationContextUtils.getWebApplicationContext(this.getServletContext());
+		String sql="";
 		StuDB sdb=(StuDB) wac.getBean("StuDB");
+		DBUtil dbu=(DBUtil) wac.getBean("DBUtil");
 		String stuNO=(String) session.getAttribute("stuNo");
 		if(action.equals("login")){
 			stuNO=request.getParameter("username").trim();
@@ -78,10 +83,37 @@ public class StudentServlet extends HttpServlet {
 		else if(action.equals("simple")){
 			String key=request.getParameter("key").toUpperCase();
 			String condition=request.getParameter("condition");
-			String 
+			sql="select * from Book where "+condition+" like '%"+key+"%'";
+			PageBean pb=(PageBean) session.getAttribute("pagebean");
+			int span=pb.getSpan();
+			int page=1;
+			pb.setSql(sql);
+			vlist=dbu.getPageContent(sql, page, span);
+			sql="select count(*) from book where "+condition+" like '%"+key+"%'";
+			int total=dbu.getTotal(sql, span);
+			pb.setCurrentPage(page);
+			pb.setTotalPage(total);
+			session.setAttribute("pagebean", pb);
+			request.setAttribute("v", vlist);
+			request.getRequestDispatcher("query_book_result.jsp").forward(request, response);
 		}
 		else if(action.equals("complex")){
-			
+			String bookname=request.getParameter("BookName");
+			String author=request.getParameter("Author");
+			String publish=request.getParameter("Publish");
+			sql="select * from book where BookName like '%"+bookname+"%' and Author like '%"+author+"%' and Publish like '%"+publish+"%'";
+			PageBean pb=(PageBean) session.getAttribute("pagebean");
+			int span=pb.getSpan();
+			int page=1;
+			pb.setSql(sql);
+			vlist=dbu.getPageContent(sql, page, span);
+			sql="select count(*) from book where BookName like '%"+bookname+"%' and Author like '%"+author+"%' and Publish like '%"+publish+"%'";
+			int total=dbu.getTotal(sql, span);
+			pb.setCurrentPage(page);
+			pb.setTotalPage(total);
+			session.setAttribute("pagebean", pb);
+			request.setAttribute("v", vlist);
+			request.getRequestDispatcher("query_book_result.jsp").forward(request, response);
 		}
 	}
 
